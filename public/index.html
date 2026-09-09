@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A P Bhargav Ravi Teja — GitHub Profile & README Live Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.6.1/github-markdown.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+
+  <style>
+    :root {
+      --bg-canvas: #090d13;
+      --bg-page: #0d1117;
+      --bg-card: #161b22;
+      --bg-subtle: #21262d;
+      --border-color: #30363d;
+      --text-main: #e6edf3;
+      --text-muted: #8b949e;
+      --accent: #58a6ff;
+      --accent-glow: rgba(88, 166, 255, 0.15);
+      --success: #3fb950;
+      --warning: #d29922;
+      --btn-bg: #21262d;
+      --btn-hover: #30363d;
+      --card-radius: 12px;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      --font-display: 'Outfit', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    [data-theme="light"] {
+      --bg-canvas: #f0f3f6;
+      --bg-page: #ffffff;
+      --bg-card: #f6f8fa;
+      --bg-subtle: #eaeef2;
+      --border-color: #d0d7de;
+      --text-main: #1f2328;
+      --text-muted: #656d76;
+      --accent: #0969da;
+      --accent-glow: rgba(9, 105, 218, 0.12);
+      --success: #1a7f37;
+      --warning: #9a6700;
+      --btn-bg: #f6f8fa;
+      --btn-hover: #eaeef2;
+      --shadow: 0 8px 24px rgba(140, 149, 159, 0.2);
+    }
+
+    [data-theme="oled"] {
+      --bg-canvas: #000000;
+      --bg-page: #050505;
+      --bg-card: #0d0d0e;
+      --bg-subtle: #18181b;
+      --border-color: #27272a;
+      --text-main: #fafafa;
+      --text-muted: #a1a1aa;
+      --accent: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.15);
+      --success: #22c55e;
+      --btn-bg: #18181b;
+      --btn-hover: #27272a;
+      --shadow: 0 12px 36px rgba(0, 0, 0, 0.6);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    /* Top Control Bar */
+    header.control-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-page);
+      border-bottom: 1px solid var(--border-color);
+      backdrop-filter: blur(12px);
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .github-icon-badge {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--btn-bg);
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-main);
+    }
+
+    .brand-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .status-badge {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 500;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(63, 185, 80, 0.15);
+      color: var(--success);
+      border: 1px solid rgba(63, 185, 80, 0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .status-badge .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--success);
+      box-shadow: 0 0 8px var(--success);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .controls-center {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--btn-bg);
+      padding: 4px;
+      border-radius: 10px;
+      border: 1px solid var(--border-color);
+    }
+
+    .seg-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 6px 12px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+
+    .seg-btn:hover {
+      color: var(--text-main);
+    }
+
+    .seg-btn.active {
+      background: var(--bg-card);
+      color: var(--accent);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    .controls-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .icon-btn {
+      background: var(--btn-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+
+    .icon-btn:hover {
+      background: var(--btn-hover);
+      border-color: var(--accent);
+    }
+
+    .icon-btn.primary {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+    }
+    .icon-btn.primary:hover {
+      opacity: 0.9;
+    }
+
+    /* Main Container */
+    main.preview-container-wrapper {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      padding: 32px 20px 60px;
+      transition: max-width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .viewport-frame {
+      width: 100%;
+      max-width: 1280px;
+      transition: max-width 0.35s ease, border 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .viewport-frame.viewport-tablet {
+      max-width: 768px;
+      border: 8px solid var(--bg-subtle);
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      background: var(--bg-page);
+      overflow: hidden;
+    }
+
+    .viewport-frame.viewport-mobile {
+      max-width: 420px;
+      border: 10px solid var(--bg-subtle);
+      border-radius: 36px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.6);
+      background: var(--bg-page);
+      overflow: hidden;
+    }
+
+    /* GitHub Profile Layout Mode */
+    .profile-layout {
+      display: grid;
+      grid-template-columns: 296px 1fr;
+      gap: 32px;
+    }
+
+    @media (max-width: 860px) {
+      .profile-layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+
+    /* Sidebar Profile Card */
+    .profile-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .avatar-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 280px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid var(--border-color);
+      box-shadow: var(--shadow);
+      background: var(--bg-card);
+    }
+
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .profile-names {
+      margin-top: 4px;
+    }
+
+    .profile-fullname {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--text-main);
+    }
+
+    .profile-username {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      font-weight: 400;
+      margin-top: 2px;
+    }
+
+    .profile-bio {
+      font-size: 0.92rem;
+      line-height: 1.5;
+      color: var(--text-main);
+      margin-top: 6px;
+    }
+
+    .profile-details {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      padding-top: 12px;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .detail-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .detail-row a {
+      color: var(--text-main);
+      text-decoration: none;
+    }
+    .detail-row a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    /* Tabs Bar */
+    .github-nav-tabs {
+      display: flex;
+      gap: 8px;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 24px;
+      padding-bottom: 0px;
+    }
+
+    .nav-tab {
+      padding: 10px 16px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      border-bottom: 2px solid transparent;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .nav-tab.active {
+      color: var(--text-main);
+      border-bottom-color: #f78166;
+    }
+
+    .counter-pill {
+      background: var(--bg-subtle);
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      padding: 1px 7px;
+      border-radius: 999px;
+    }
+
+    /* Pinned Repositories Grid */
+    .pinned-section {
+      margin-bottom: 28px;
+    }
+
+    .section-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .pinned-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 16px;
+    }
+
+    .pinned-card {
+      background: var(--bg-page);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+      transition: border-color 0.15s ease, transform 0.15s ease;
+    }
+
+    .pinned-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .pinned-card-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .repo-link {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .repo-link:hover {
+      text-decoration: underline;
+    }
+
+    .badge-pill {
+      font-size: 0.72rem;
+      padding: 1px 7px;
+      border-radius: 999px;
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+    }
+
+    .pinned-desc {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    .pinned-footer {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+      flex-wrap: wrap;
+    }
+
+    .lang-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 4px;
+    }
+
+    /* README Card Box (exact GitHub profile style) */
+    .readme-box {
+      background: var(--bg-page);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 32px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    }
+
+    .readme-header {
+      padding: 10px 16px;
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+
+    .readme-header-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+      color: var(--text-main);
+    }
+
+    .readme-content-body {
+      padding: 32px 36px;
+    }
+
+    @media (max-width: 600px) {
+      .readme-content-body {
+        padding: 20px 16px;
+      }
+    }
+
+    /* Override GitHub Markdown CSS for responsive hero and theme integration */
+    .markdown-body {
+      background-color: transparent !important;
+      color: var(--text-main) !important;
+      font-family: var(--font-body) !important;
+    }
+
+    .markdown-body a {
+      color: var(--accent) !important;
+    }
+
+    .markdown-body table {
+      display: table !important;
+      width: 100% !important;
+      border-collapse: collapse !important;
+      margin: 18px 0 !important;
+    }
+
+    .markdown-body table tr {
+      background-color: transparent !important;
+      border-top: 1px solid var(--border-color) !important;
+    }
+
+    .markdown-body table tr:nth-child(2n) {
+      background-color: var(--bg-card) !important;
+    }
+
+    .markdown-body table th,
+    .markdown-body table td {
+      border: 1px solid var(--border-color) !important;
+      padding: 10px 14px !important;
+    }
+
+    .markdown-body pre,
+    .markdown-body code {
+      background-color: var(--bg-card) !important;
+      border-radius: 6px;
+      font-family: var(--font-mono) !important;
+    }
+
+    .markdown-body hr {
+      background-color: var(--border-color) !important;
+      height: 1px !important;
+      margin: 28px 0 !important;
+    }
+
+    .markdown-body details {
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 12px 16px;
+      background: var(--bg-card);
+      margin: 16px 0;
+    }
+
+    .markdown-body summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    /* Responsive SVG Hero Picture styling */
+    .markdown-body picture img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+      transition: transform 0.2s ease;
+    }
+
+    /* Editor Mode Split View */
+    .editor-layout {
+      display: none;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      height: calc(100vh - 120px);
+    }
+
+    .editor-pane {
+      display: flex;
+      flex-direction: column;
+      background: var(--bg-page);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .editor-pane-header {
+      padding: 10px 16px;
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border-color);
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .editor-textarea {
+      flex: 1;
+      background: var(--bg-page);
+      color: var(--text-main);
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      border: none;
+      padding: 16px;
+      resize: none;
+      outline: none;
+    }
+
+    .editor-preview-scroll {
+      flex: 1;
+      padding: 24px;
+      overflow-y: auto;
+    }
+
+    /* Contribution graph fallback banner */
+    .snake-fallback-card {
+      border: 1px dashed var(--border-color);
+      border-radius: 12px;
+      padding: 20px;
+      background: var(--bg-card);
+      text-align: center;
+      margin: 16px 0;
+    }
+
+    /* Notification toast */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 12px 20px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.86rem;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 1000;
+    }
+
+    .toast.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Control Bar -->
+  <header class="control-bar">
+    <div class="brand-group">
+      <div class="github-icon-badge" title="GitHub Profile Readme">
+        <svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+        </svg>
+      </div>
+      <div>
+        <div class="brand-title">
+          Bhargav200 / README
+          <span class="status-badge"><span class="dot"></span> localhost:3000</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Layout & Viewport switchers -->
+    <div class="controls-center">
+      <button class="seg-btn active" id="btnModeProfile" onclick="setViewMode('profile')" title="Simulated GitHub Profile View">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor"><path d="M10.561 8.073a6.005 6.005 0 0 1 3.432 5.142.75.75 0 1 1-1.498.07 4.5 4.5 0 0 0-8.99 0 .75.75 0 0 1-1.498-.07 6.004 6.004 0 0 1 3.431-5.142 3.999 3.999 0 1 1 5.123 0ZM10.5 5a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></svg>
+        Profile View
+      </button>
+      <button class="seg-btn" id="btnModeDoc" onclick="setViewMode('doc')" title="Pure Markdown Document">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path></svg>
+        Document View
+      </button>
+      <button class="seg-btn" id="btnModeEditor" onclick="setViewMode('editor')" title="Split Markdown Editor">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor"><path d="M11.013 1.427a1.75 1.75 0 0 1 2.474 0l1.086 1.086a1.75 1.75 0 0 1 0 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 0 1-.927-.928l.929-3.25a1.75 1.75 0 0 1 .445-.758l8.61-8.61Zm1.414 1.06a.25.25 0 0 0-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 0 0 0-.354Z"></path></svg>
+        Live Editor
+      </button>
+    </div>
+
+    <!-- Responsive Viewport Switcher -->
+    <div class="controls-center" id="viewportControls">
+      <button class="seg-btn active" id="vpDesktop" onclick="setViewport('desktop')" title="Desktop Viewport">
+        🖥️ Desktop
+      </button>
+      <button class="seg-btn" id="vpTablet" onclick="setViewport('tablet')" title="Tablet Viewport (768px)">
+        📱 Tablet
+      </button>
+      <button class="seg-btn" id="vpMobile" onclick="setViewport('mobile')" title="Mobile Viewport (420px - swaps hero SVG to mobile layout!)">
+        📱 Mobile
+      </button>
+    </div>
+
+    <!-- Right utility controls -->
+    <div class="controls-right">
+      <button class="icon-btn" onclick="toggleTheme()" title="Switch Theme">
+        <span id="themeIcon">☀️</span> Theme
+      </button>
+      <button class="icon-btn" onclick="regenerateHeroSVGs()" title="Regenerate SVG Hero Banner">
+        ⚡ Re-gen Hero
+      </button>
+      <button class="icon-btn primary" onclick="copyMarkdown()" title="Copy README Markdown">
+        📋 Copy MD
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="preview-container-wrapper">
+    <div class="viewport-frame" id="viewportFrame">
+
+      <!-- Profile Layout -->
+      <div id="profileContainer" class="profile-layout">
+        <!-- Sidebar -->
+        <aside class="profile-sidebar">
+          <div class="avatar-wrapper">
+            <img class="avatar-img" src="/assets/profile-photo.jpg" alt="A P Bhargav Ravi Teja" onerror="this.src='https://avatars.githubusercontent.com/u/108520268?v=4'">
+          </div>
+          <div class="profile-names">
+            <h1 class="profile-fullname">A P Bhargav Ravi Teja</h1>
+            <div class="profile-username">Bhargav200 · he/him</div>
+          </div>
+          <p class="profile-bio">
+            AI/ML Engineer · B.Tech in CS (AI/ML). Building machine learning, generative AI, RAG, and full-stack systems.
+          </p>
+          <div class="profile-details">
+            <div class="detail-row">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="m12.596 11.596-3.535 3.536a1.5 1.5 0 0 1-2.122 0l-3.535-3.536a6.5 6.5 0 1 1 9.192-9.193 6.5 6.5 0 0 1 0 9.193Zm-1.06-8.132a5 5 0 1 0-7.072 7.072L8 14.07l3.536-3.535a5 5 0 0 0 0-7.07Z"></path><path d="M8 8.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path></svg>
+              <span>Secunderabad, India</span>
+            </div>
+            <div class="detail-row">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M7.775 3.275a.75.75 0 0 0 1.06 1.06l1.25-1.25a2 2 0 1 1 2.83 2.83l-2.5 2.5a2 2 0 0 1-2.83 0 .75.75 0 0 0-1.06 1.06 3.5 3.5 0 0 0 4.95 0l2.5-2.5a3.5 3.5 0 0 0-4.95-4.95l-1.25 1.25Zm-.025 8.45a.75.75 0 0 0-1.06-1.06l-1.25 1.25a2 2 0 0 1-2.83-2.83l2.5-2.5a2 2 0 0 1 2.83 0 .75.75 0 0 0 1.06-1.06 3.5 3.5 0 0 0-4.95 0l-2.5 2.5a3.5 3.5 0 0 0 4.95 4.95l1.25-1.25Z"></path></svg>
+              <a href="https://flixport08.vercel.app" target="_blank">flixport08.vercel.app</a>
+            </div>
+            <div class="detail-row">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg>
+              <a href="https://github.com/Bhargav200" target="_blank">github.com/Bhargav200</a>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main Column -->
+        <section class="profile-main">
+          <!-- GitHub Tabs -->
+          <nav class="github-nav-tabs">
+            <a class="nav-tab active" href="#overview">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M0 1.75A.75.75 0 0 1 .75 1h4.253c1.227 0 2.317.59 3 1.501A3.743 3.743 0 0 1 11.006 1h4.244a.75.75 0 0 1 .75.75v10.5a.75.75 0 0 1-.75.75h-4.244a2.25 2.25 0 0 0-1.756.843l-.25.301-.25-.301A2.25 2.25 0 0 0 6.997 13H2.75a.75.75 0 0 1-.75-.75V1.75Z"></path></svg>
+              Overview
+            </a>
+            <a class="nav-tab" href="https://github.com/Bhargav200?tab=repositories" target="_blank">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h5.5a.25.25 0 0 1 .25.25v1.5a.25.25 0 0 1-.25.25h-5.5a.25.25 0 0 1-.25-.25Z"></path></svg>
+              Repositories <span class="counter-pill">12</span>
+            </a>
+            <a class="nav-tab" href="https://github.com/Bhargav200?tab=stars" target="_blank">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"></path></svg>
+              Stars <span class="counter-pill">18</span>
+            </a>
+          </nav>
+
+          <!-- README Card Box -->
+          <div class="readme-box">
+            <div class="readme-header">
+              <div class="readme-header-title">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path></svg>
+                Bhargav200 / README.md
+              </div>
+              <div id="readmeLastMod">Auto-synced</div>
+            </div>
+            <div class="readme-content-body">
+              <article class="markdown-body" id="readmeRenderedContent">
+                <!-- Rendered Markdown goes here -->
+                <div style="text-align: center; padding: 40px; color: var(--text-muted);">
+                  Loading profile README...
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <!-- Pinned Repositories -->
+          <div class="pinned-section">
+            <div class="section-title">
+              <span>Pinned Repositories</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: normal;">Customized from data/featured-projects.json</span>
+            </div>
+            <div class="pinned-grid" id="pinnedGridContainer">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Pure Document View Mode -->
+      <div id="docContainer" style="display: none;">
+        <div class="readme-box" style="max-width: 1000px; margin: 0 auto;">
+          <div class="readme-header">
+            <div class="readme-header-title">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path></svg>
+              README.md
+            </div>
+          </div>
+          <div class="readme-content-body">
+            <article class="markdown-body" id="docRenderedContent">
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Split Editor Mode -->
+      <div id="editorContainer" class="editor-layout">
+        <div class="editor-pane">
+          <div class="editor-pane-header">
+            <span>Markdown Source (README.md)</span>
+            <button class="icon-btn primary" onclick="saveMarkdown()" style="padding: 4px 10px; font-size: 0.78rem;">
+              💾 Save Changes
+            </button>
+          </div>
+          <textarea class="editor-textarea" id="markdownEditor" spellcheck="false" placeholder="Type Markdown here..."></textarea>
+        </div>
+        <div class="editor-pane">
+          <div class="editor-pane-header">
+            <span>Live Output Preview</span>
+            <span style="font-size: 0.75rem; color: var(--text-muted);">Realtime parse</span>
+          </div>
+          <div class="editor-preview-scroll">
+            <article class="markdown-body" id="editorPreviewContent"></article>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Toast alert -->
+  <div id="toast" class="toast">
+    <span id="toastIcon">✨</span>
+    <span id="toastMsg">Action complete</span>
+  </div>
+
+  <script>
+    let currentRawMarkdown = "";
+    let currentTheme = localStorage.getItem("theme") || "dark";
+    let currentViewport = "desktop";
+    let currentMode = "profile";
+
+    // Setup Theme
+    function applyTheme(theme) {
+      document.documentElement.setAttribute("data-theme", theme);
+      const icon = document.getElementById("themeIcon");
+      if (theme === "dark") icon.textContent = "☀️ Light";
+      else if (theme === "light") icon.textContent = "🌙 OLED";
+      else icon.textContent = "🌑 Dark";
+      localStorage.setItem("theme", theme);
+      currentTheme = theme;
+      
+      // Update theme in hero images if picture elements exist
+      updatePictureSources();
+    }
+
+    function toggleTheme() {
+      if (currentTheme === "dark") applyTheme("light");
+      else if (currentTheme === "light") applyTheme("oled");
+      else applyTheme("dark");
+    }
+
+    function updatePictureSources() {
+      const isLight = currentTheme === "light";
+      document.querySelectorAll("picture").forEach(pic => {
+        const img = pic.querySelector("img");
+        if (img && img.src.includes("builder-profile-v2")) {
+          img.src = isLight ? "./assets/hero/builder-profile-v2-light.svg" : "./assets/hero/builder-profile-v2-dark.svg";
+        }
+      });
+    }
+
+    // Viewport control
+    function setViewport(vp) {
+      currentViewport = vp;
+      const frame = document.getElementById("viewportFrame");
+      document.querySelectorAll("#viewportControls .seg-btn").forEach(b => b.classList.remove("active"));
+      
+      frame.classList.remove("viewport-tablet", "viewport-mobile");
+      if (vp === "desktop") {
+        document.getElementById("vpDesktop").classList.add("active");
+      } else if (vp === "tablet") {
+        document.getElementById("vpTablet").classList.add("active");
+        frame.classList.add("viewport-tablet");
+      } else if (vp === "mobile") {
+        document.getElementById("vpMobile").classList.add("active");
+        frame.classList.add("viewport-mobile");
+      }
+    }
+
+    // Mode control
+    function setViewMode(mode) {
+      currentMode = mode;
+      document.getElementById("btnModeProfile").classList.toggle("active", mode === "profile");
+      document.getElementById("btnModeDoc").classList.toggle("active", mode === "doc");
+      document.getElementById("btnModeEditor").classList.toggle("active", mode === "editor");
+
+      document.getElementById("profileContainer").style.display = (mode === "profile") ? "grid" : "none";
+      document.getElementById("docContainer").style.display = (mode === "doc") ? "block" : "none";
+      document.getElementById("editorContainer").style.display = (mode === "editor") ? "grid" : "none";
+      document.getElementById("viewportControls").style.display = (mode === "editor") ? "none" : "flex";
+
+      if (mode === "editor") {
+        document.getElementById("markdownEditor").value = currentRawMarkdown;
+        renderEditorPreview();
+      }
+    }
+
+    // Show Toast
+    function showToast(msg, icon = "✨") {
+      const toast = document.getElementById("toast");
+      document.getElementById("toastMsg").textContent = msg;
+      document.getElementById("toastIcon").textContent = icon;
+      toast.classList.add("visible");
+      setTimeout(() => toast.classList.remove("visible"), 3200);
+    }
+
+    // Markdown Parser & Sanitizer/Enhancer
+    function parseAndEnhanceMarkdown(md) {
+      marked.setOptions({
+        gfm: true,
+        breaks: false
+      });
+      let html = marked.parse(md);
+
+      // Enhance snake contribution graph: if the github raw url fails, display a handsome SVG contribution animation
+      html = html.replace(/<img[^>]*github-contribution-grid-snake[^>]*>/gi, (match) => {
+        return `<div style="overflow-x:auto; padding: 10px 0;">
+          <svg viewBox="0 0 850 140" width="100%" height="auto" style="border-radius:8px; border:1px solid var(--border-color); background: var(--bg-card);">
+            <defs>
+              <linearGradient id="snakeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#39d353" />
+                <stop offset="100%" stop-color="#0e4429" />
+              </linearGradient>
+            </defs>
+            <text x="20" y="30" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="13">Bhargav200 / Contributions Trail (Snake)</text>
+            <g transform="translate(20, 50)">
+              ${Array.from({length: 46}).map((_, col) => 
+                Array.from({length: 5}).map((_, row) => {
+                  const colors = ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"];
+                  const cIndex = (col * 7 + row * 13) % 5;
+                  return `<rect x="${col * 17}" y="${row * 15}" width="12" height="12" rx="3" fill="${colors[cIndex]}" opacity="0.9" />`;
+                }).join("")
+              ).join("")}
+              <!-- Animated snake head -->
+              <circle cx="360" cy="36" r="6" fill="#58a6ff">
+                <animate attributeName="cx" values="20;750;20" dur="14s" repeatCount="indefinite" />
+              </circle>
+            </g>
+          </svg>
+        </div>`;
+      });
+
+      return html;
+    }
+
+    // Fetch and render README
+    async function loadReadme() {
+      try {
+        const res = await fetch("/api/readme");
+        const data = await res.json();
+        currentRawMarkdown = data.markdown;
+
+        const rendered = parseAndEnhanceMarkdown(currentRawMarkdown);
+        document.getElementById("readmeRenderedContent").innerHTML = rendered;
+        document.getElementById("docRenderedContent").innerHTML = rendered;
+        if (data.modified) {
+          const d = new Date(data.modified);
+          document.getElementById("readmeLastMod").textContent = `Updated ${d.toLocaleTimeString()}`;
+        }
+        updatePictureSources();
+      } catch (err) {
+        console.error("Failed to load README:", err);
+      }
+    }
+
+    // Fetch and render Featured Projects
+    async function loadFeaturedProjects() {
+      try {
+        const res = await fetch("/api/projects");
+        const projects = await res.json();
+        const container = document.getElementById("pinnedGridContainer");
+        
+        const langColors = {
+          "Python": "#3572A5",
+          "TypeScript": "#3178c6",
+          "JavaScript": "#f1e05a",
+          "React": "#61dafb",
+          "Docker": "#384d54",
+          "PostgreSQL": "#336791",
+          "CSS": "#563d7c",
+          "FastAPI": "#009688"
+        };
+
+        container.innerHTML = projects.map(p => {
+          const mainLang = p.tags?.[0] || "Code";
+          const langColor = langColors[mainLang] || "#58a6ff";
+          const liveBadge = p.homepage ? `<a href="${p.homepage}" target="_blank" style="text-decoration:none; color: var(--accent);"><span class="badge-pill" style="border-color: var(--accent); color: var(--accent);">Live ↗</span></a>` : "";
+
+          return `
+            <div class="pinned-card">
+              <div class="pinned-card-header">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="var(--text-muted)"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h5.5a.25.25 0 0 1 .25.25v1.5a.25.25 0 0 1-.25.25h-5.5a.25.25 0 0 1-.25-.25Z"></path></svg>
+                <a class="repo-link" href="${p.url}" target="_blank">${p.name}</a>
+                <span class="badge-pill">${p.status || "Public"}</span>
+                ${liveBadge}
+              </div>
+              <p class="pinned-desc">${p.summary || p.focus}</p>
+              <div class="pinned-footer">
+                <span><span class="lang-dot" style="background:${langColor};"></span>${mainLang}</span>
+                <span>${(p.tags || []).slice(1, 4).join(" · ")}</span>
+              </div>
+            </div>
+          `;
+        }).join("");
+      } catch (err) {
+        console.error("Failed to load projects:", err);
+      }
+    }
+
+    // Live Editor Handlers
+    const markdownEditor = document.getElementById("markdownEditor");
+    markdownEditor.addEventListener("input", () => {
+      renderEditorPreview();
+    });
+
+    function renderEditorPreview() {
+      const val = markdownEditor.value;
+      document.getElementById("editorPreviewContent").innerHTML = parseAndEnhanceMarkdown(val);
+    }
+
+    async function saveMarkdown() {
+      const val = markdownEditor.value;
+      try {
+        const res = await fetch("/api/readme", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ markdown: val })
+        });
+        if (res.ok) {
+          showToast("Saved to README.md successfully!", "💾");
+          loadReadme();
+        } else {
+          showToast("Failed to save", "⚠️");
+        }
+      } catch (err) {
+        showToast("Error: " + err.message, "❌");
+      }
+    }
+
+    // Actions
+    function copyMarkdown() {
+      navigator.clipboard.writeText(currentRawMarkdown).then(() => {
+        showToast("README.md copied to clipboard!", "📋");
+      });
+    }
+
+    async function regenerateHeroSVGs() {
+      showToast("Regenerating hero SVGs...", "⚡");
+      try {
+        const res = await fetch("/api/generate-hero", { method: "POST" });
+        const data = await res.json();
+        if (data.success) {
+          showToast("Hero SVGs refreshed!", "✅");
+          loadReadme();
+        } else {
+          showToast("Generation error: " + (data.error || "failed"), "⚠️");
+        }
+      } catch (err) {
+        showToast("Error running script: " + err.message, "❌");
+      }
+    }
+
+    // SSE Live Reload
+    function initSSE() {
+      const evtSource = new EventSource("/api/events");
+      evtSource.onmessage = (event) => {
+        console.log("Change detected:", event.data);
+        loadReadme();
+        loadFeaturedProjects();
+        showToast("Live update synced", "🔄");
+      };
+      evtSource.onerror = () => {
+        console.log("SSE disconnected, will auto-reconnect...");
+      };
+    }
+
+    // Initialize
+    applyTheme(currentTheme);
+    loadReadme();
+    loadFeaturedProjects();
+    initSSE();
+  </script>
+</body>
+</html>

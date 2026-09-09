@@ -1,0 +1,57 @@
+[
+  {
+    "name": "Stine Bot",
+    "repo": "Bhargav200/-Intelligent-Slack-Knowledge-Base_BhargavRaviTeja",
+    "url": "https://github.com/Bhargav200/-Intelligent-Slack-Knowledge-Base_BhargavRaviTeja",
+    "homepage": null,
+    "role": "Builder",
+    "status": "Public repository",
+    "focus": "Slack-native RAG knowledge base",
+    "summary": "A Slack-native AI knowledge base with a React dashboard, FastAPI backend, and custom SQLite RAG vector storage.",
+    "tags": ["Python", "FastAPI", "React", "RAG", "SQLite"]
+  },
+  {
+    "name": "Flixport08",
+    "repo": "Bhargav200/Flixport08",
+    "url": "https://github.com/Bhargav200/Flixport08",
+    "homepage": "https://flixport08.vercel.app",
+    "role": "Builder",
+    "status": "Live deployment",
+    "focus": "TypeScript web application",
+    "summary": "A TypeScript web application deployed at flixport08.vercel.app.",
+    "tags": ["TypeScript", "JavaScript", "CSS", "HTML"]
+  },
+  {
+    "name": "Know-AI",
+    "repo": "Bhargav200/Know-AI",
+    "url": "https://github.com/Bhargav200/Know-AI",
+    "homepage": null,
+    "role": "Builder",
+    "status": "Public repository",
+    "focus": "AI web research assistant",
+    "summary": "An AI agent that searches the web, extracts content, and generates summaries through a web interface and REST API.",
+    "tags": ["Python", "FastAPI", "Docker", "AI Agents"]
+  },
+  {
+    "name": "StudyOrbit",
+    "repo": "Bhargav200/LMS-Edutech-Hackathon--StudyOrbit-",
+    "url": "https://github.com/Bhargav200/LMS-Edutech-Hackathon--StudyOrbit-",
+    "homepage": "https://studyorbit-lms.vercel.app",
+    "role": "Builder",
+    "status": "Live deployment",
+    "focus": "Learning-management web app",
+    "summary": "A TypeScript learning-management web application deployed at studyorbit-lms.vercel.app.",
+    "tags": ["TypeScript", "CSS", "JavaScript"]
+  },
+  {
+    "name": "Clipnova",
+    "repo": "Bhargav200/clipnova-ai-editor",
+    "url": "https://github.com/Bhargav200/clipnova-ai-editor",
+    "homepage": null,
+    "role": "Builder",
+    "status": "Public repository",
+    "focus": "AI editor application",
+    "summary": "A TypeScript AI editor application.",
+    "tags": ["TypeScript", "PostgreSQL", "JavaScript"]
+  }
+]
