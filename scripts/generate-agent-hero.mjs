@@ -195,10 +195,8 @@ async function samplePortrait(sourcePath, columns, rows) {
     "ffmpeg",
     [
       "-v", "error",
-      "-f", "lavfi",
-      "-i", "color=c=white:s=3072x4096",
       "-i", sourcePath,
-      "-filter_complex", `[0:v][1:v]overlay=shortest=1:format=auto,${portraitFilter},scale=${columns}:${rows}`,
+      "-vf", `${portraitFilter},scale=${columns}:${rows}`,
       "-frames:v", "1",
       "-f", "image2pipe",
       "-vcodec", "pgm",
