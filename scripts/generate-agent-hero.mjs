@@ -292,7 +292,6 @@ function createHeroSvg(mode, size, portrait, profileLines) {
   const ambientPortrait = buildAmbientPortraitLayer(layout, colors, size);
   const system = buildSystemLayer(layout.system, colors, profileLines);
   const isDesktop = size === "desktop";
-  const titleCenter = titlebar.x + titlebar.width / 2;
   const liveX = titlebar.x + titlebar.width - (isDesktop ? 138 : 94);
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${layout.width}" height="${layout.height}" viewBox="0 0 ${layout.width} ${layout.height}" role="img" aria-labelledby="title description">
@@ -337,7 +336,6 @@ function createHeroSvg(mode, size, portrait, profileLines) {
 <circle cx="${titlebar.x + 21}" cy="${titlebar.y + titlebar.height / 2}" r="5" fill="${colors.cyan}" opacity="0.88"/>
 <circle cx="${titlebar.x + 39}" cy="${titlebar.y + titlebar.height / 2}" r="5" fill="${colors.violet}" opacity="0.7"/>
 <circle cx="${titlebar.x + 57}" cy="${titlebar.y + titlebar.height / 2}" r="5" fill="${colors.green}" opacity="0.78"/>
-<text x="${titleCenter}" y="${titlebar.y + titlebar.height / 2 + 5}" text-anchor="middle" class="terminal-label">bhargav@aiml ~ % ./profile</text>
 ${isDesktop ? `<circle cx="${liveX}" cy="${titlebar.y + titlebar.height / 2}" r="4" fill="${colors.red}"/><text x="${liveX + 10}" y="${titlebar.y + titlebar.height / 2 + 4}" class="live-label">BUILDING</text>` : ""}
 <rect x="${visual.x}" y="${visual.y}" width="${visual.width}" height="${visual.height}" rx="${visual.radius}" fill="${colors.panel}" fill-opacity="0.38" stroke="url(#border)" stroke-opacity="0.42"/>
 <rect x="${info.x}" y="${info.y}" width="${info.width}" height="${info.height}" rx="${info.radius}" fill="${colors.panel}" fill-opacity="0.42" stroke="url(#border)" stroke-opacity="0.42"/>

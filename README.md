@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Bhargav200"><strong>GitHub</strong></a> · <a href="https://flixport08.vercel.app"><strong>Portfolio</strong></a>
+  <a href="https://www.linkedin.com/in/bhargavraviteja/"><strong>LinkedIn Profile</strong></a> · <a href="https://flixport08.vercel.app"><strong>Portfolio</strong></a>
 </p>
 
 ## Hello, I'm Bhargav
@@ -21,7 +21,6 @@ I'm **A P Bhargav Ravi Teja**, an AI/ML enthusiast with a B.Tech in Computer Sci
 - **Machine learning & computer vision:** TensorFlow, Scikit-learn, OpenCV, NLP, and data analysis.
 - **Generative AI & LLMs:** RAG, fine-tuning, evaluation, and prompt engineering.
 - **Backend & web:** FastAPI, Express.js, REST APIs, HTML, CSS, and JavaScript.
-- **Engineering foundations:** data structures, algorithms, system design, workflow automation, and Git.
 
 ## Selected Work
 
